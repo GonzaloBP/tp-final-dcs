@@ -1,25 +1,24 @@
 package com.utn.frre.cs.examen.receta.spring.receta.examen;
 
-import java.util.Date;
+ 
 
-import org.slf4j.Logger;
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.Examen;
-import com.utn.frre.cs.examen.receta.spring.receta.examen.misRepositorios.ExamenRepositorio;
+
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
-	private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
+	// private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
 	
 	
 	@Autowired
-	ExamenRepositorio repositorioExamen;
+	//ExamenRepositorio repositorioExamen;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -27,7 +26,7 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+		/*
 		logger.info("buscar info solicitudExamen id 3 ->{}",repositorioExamen.encontrarPorId(3));
 		
 		logger.info("actualiza info de solicitud de examen con id 3",
@@ -48,6 +47,7 @@ public class Application implements CommandLineRunner {
 		
 		//en estudio, mirar mas querry
 		//  repositorioExamen.encontrarInternacionesPaciente();
+		 */
 	}
 
 }
