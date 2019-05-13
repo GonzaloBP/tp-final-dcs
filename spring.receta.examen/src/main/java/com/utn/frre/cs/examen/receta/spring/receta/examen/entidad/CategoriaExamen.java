@@ -18,7 +18,7 @@ public class CategoriaExamen {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="COD_EXAMEN")
-	private int cod_examen;
+	private Long cod_examen;
 	
 	private String descripcionExamen;
 
@@ -39,7 +39,7 @@ public class CategoriaExamen {
 	}
 
 	//para un update
-	public CategoriaExamen(int cod_examen, String descripcionExamen) {
+	public CategoriaExamen(Long cod_examen, String descripcionExamen) {
 		super();
 		this.cod_examen = cod_examen;
 		this.descripcionExamen = descripcionExamen;
@@ -63,11 +63,11 @@ public class CategoriaExamen {
 	}
 	
 
-	public int getCod_examen() {
+	public Long getCod_examen() {
 		return cod_examen;
 	}
 
-	public void setCod_examen(int cod_examen) {
+	public void setCod_examen(Long cod_examen) {
 		this.cod_examen = cod_examen;
 	}
 

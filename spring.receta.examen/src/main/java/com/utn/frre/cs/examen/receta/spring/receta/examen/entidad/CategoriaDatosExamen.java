@@ -19,7 +19,7 @@ public class CategoriaDatosExamen {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="COD_DATO")
-	private int cod_dato;
+	private Long cod_dato;
 	
 	@ManyToOne 
 	private CategoriaExamen categoriaExamen;
@@ -34,7 +34,7 @@ public class CategoriaDatosExamen {
 		
 	}
 		
-	public CategoriaDatosExamen(int cod_dato, CategoriaExamen categoriaExamen, String descripcionDato) {
+	public CategoriaDatosExamen(Long cod_dato, CategoriaExamen categoriaExamen, String descripcionDato) {
 		super();
 		this.cod_dato = cod_dato;
 		this.categoriaExamen = categoriaExamen;
@@ -49,7 +49,7 @@ public class CategoriaDatosExamen {
 	}
 
 	
-	/*
+	
 	public List<TramiteExamenDatoLinea> getTramiteExamenDatoLineas() {
 		return tramiteExamenDatoLineas;
 	}
@@ -61,13 +61,13 @@ public class CategoriaDatosExamen {
 	public void removeTramiteExamenDatoLineas( TramiteExamenDatoLinea  tramiteExamenDatoLineas) {
 		this.tramiteExamenDatoLineas.remove(tramiteExamenDatoLineas);
 	}
-	*/
+	
 
-	public int getCod_dato() {
+	public Long getCod_dato() {
 		return cod_dato;
 	}
 
-	public void setCod_dato(int cod_dato) {
+	public void setCod_dato(Long cod_dato) {
 		this.cod_dato = cod_dato;
 	}
 

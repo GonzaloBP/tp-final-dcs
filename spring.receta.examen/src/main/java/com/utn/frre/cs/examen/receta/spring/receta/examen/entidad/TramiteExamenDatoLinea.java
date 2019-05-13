@@ -14,7 +14,7 @@ public class TramiteExamenDatoLinea {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
 	@Column(name="IDE_TRAMITE_EXAMEN_DATO_LINEA")
-	private int ide_TramiteExamenDatoLinea;
+	private Long ide_TramiteExamenDatoLinea;
 	
 	
 	@ManyToOne 
@@ -28,11 +28,11 @@ public class TramiteExamenDatoLinea {
 	
 	private String resultadoExamen;
 
-	public int getIde_TramiteExamenDatoLinea() {
+	public Long getIde_TramiteExamenDatoLinea() {
 		return ide_TramiteExamenDatoLinea;
 	}
 
-	public void setIde_TramiteExamenDatoLinea(int ide_TramiteExamenDatoLinea) {
+	public void setIde_TramiteExamenDatoLinea(Long ide_TramiteExamenDatoLinea) {
 		this.ide_TramiteExamenDatoLinea = ide_TramiteExamenDatoLinea;
 	}
 
@@ -65,7 +65,7 @@ public class TramiteExamenDatoLinea {
 		
 	}
 	
-	public TramiteExamenDatoLinea(int ide_TramiteExamenDatoLinea, CategoriaDatosExamen categoriaDatoExamen,
+	public TramiteExamenDatoLinea(Long ide_TramiteExamenDatoLinea, CategoriaDatosExamen categoriaDatoExamen,
 			CategoriaExamen categoriaExamen, TramiteExamen tramiteExamen, String resultadoExamen) {
 		super();
 		this.ide_TramiteExamenDatoLinea = ide_TramiteExamenDatoLinea;

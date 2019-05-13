@@ -18,7 +18,7 @@ public class TramiteExamen {
 	@Id 
 	@GeneratedValue
 	@Column(name="IDE_SOLICITUD_EXAMEN")
-	private int ideSolicitudExamen;
+	private Long ideSolicitudExamen;
 	
 	@OneToOne 
     private CategoriaExamen categoriaExamen;
@@ -36,7 +36,7 @@ public class TramiteExamen {
 	}
 	
 	
-	public TramiteExamen(int ideSolicitudExamen, CategoriaExamen categoriaExamen, int idePersonalMed, Date fecExamen,
+	public TramiteExamen(Long ideSolicitudExamen, CategoriaExamen categoriaExamen, int idePersonalMed, Date fecExamen,
 			int idInternacion, int ideExpediente) {
 		super();
 		this.ideSolicitudExamen = ideSolicitudExamen;
@@ -75,12 +75,12 @@ public class TramiteExamen {
 	}
  
 
-	public int getIdeSolicitudExamen() {
+	public Long getIdeSolicitudExamen() {
 		return ideSolicitudExamen;
 	}
 
 
-	public void setIdeSolicitudExamen(int ideSolicitudExamen) {
+	public void setIdeSolicitudExamen(Long ideSolicitudExamen) {
 		this.ideSolicitudExamen = ideSolicitudExamen;
 	}
 

@@ -7,14 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
-@Entity 
+@Entity
+@NamedQuery(name="encontrar_todas_TramiteRecetas", query="select t from TramiteReceta t")
 public class TramiteReceta {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
 	@Column(name="IDE_RECETA")
-	private int ide_receta;
+	private Long ide_receta;
 	
 	private int ide_personal_med;
 	
@@ -50,7 +52,7 @@ public class TramiteReceta {
 	}
 
 	
-	public TramiteReceta(int ide_receta, int ide_personal_med, int ide_presentacion_med, int ide_med,
+	public TramiteReceta(Long ide_receta, int ide_personal_med, int ide_presentacion_med, int ide_med,
 			Date fecha_inicio_med, String descripcionDosis, int id_internacion, int ide_expediente) {
 		super();
 		this.ide_receta = ide_receta;
@@ -69,12 +71,12 @@ public class TramiteReceta {
 
 
 
-	public int getIde_receta() {
+	public Long getIde_receta() {
 		return ide_receta;
 	}
 
 
-	public void setIde_receta(int ide_receta) {
+	public void setIde_receta(Long ide_receta) {
 		this.ide_receta = ide_receta;
 	}
 
