@@ -90,8 +90,8 @@ public class CategoriaDatosExamen {
 	//agrego \n para mejorar la legibilidad en consola.
 	@Override
 	public String toString() {
-		return "\nCategoriaDatosExamen [cod_dato=" + cod_dato + ", categoriaExamen=" + categoriaExamen
-				+ ", descripcionDato=" + descripcionDato + "]";
+		return "\n CategoriaDatosExamen [cod_dato=" + cod_dato + ", categoriaExamen=" + categoriaExamen
+				+ ", descripcionDato=" + descripcionDato + "] \n";
 	}
 	
 	

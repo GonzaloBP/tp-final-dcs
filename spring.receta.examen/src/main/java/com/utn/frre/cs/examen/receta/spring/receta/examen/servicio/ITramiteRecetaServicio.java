@@ -2,8 +2,10 @@ package com.utn.frre.cs.examen.receta.spring.receta.examen.servicio;
 
 import java.util.List;
 
-import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.TramiteReceta;
+import org.springframework.stereotype.Repository;
 
+import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.TramiteReceta;
+@Repository
 public interface ITramiteRecetaServicio {
 
 	boolean addTramiteReceta(TramiteReceta tramiteReceta);
