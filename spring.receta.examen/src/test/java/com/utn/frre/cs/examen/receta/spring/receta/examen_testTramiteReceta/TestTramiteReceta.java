@@ -27,6 +27,9 @@ public class TestTramiteReceta {
 	
 	private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
 	
+	
+	// algunas pruebas simples para probar Junit y debug
+	
 	@Autowired
 	 TramiteRecetaServicio  servicioTramite;
 	

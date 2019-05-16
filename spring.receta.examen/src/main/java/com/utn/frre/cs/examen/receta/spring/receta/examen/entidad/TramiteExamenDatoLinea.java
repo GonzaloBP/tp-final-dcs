@@ -64,9 +64,9 @@ public class TramiteExamenDatoLinea {
 	public TramiteExamenDatoLinea() {
 		
 	}
-	
+
 	public TramiteExamenDatoLinea(Long ide_TramiteExamenDatoLinea, CategoriaDatosExamen categoriaDatoExamen,
-			CategoriaExamen categoriaExamen, TramiteExamen tramiteExamen, String resultadoExamen) {
+			TramiteExamen tramiteExamen, String resultadoExamen) {
 		super();
 		this.ide_TramiteExamenDatoLinea = ide_TramiteExamenDatoLinea;
 		this.categoriaDatoExamen = categoriaDatoExamen;
@@ -74,8 +74,8 @@ public class TramiteExamenDatoLinea {
 		this.resultadoExamen = resultadoExamen;
 	}
 
-	public TramiteExamenDatoLinea(CategoriaDatosExamen categoriaDatoExamen, CategoriaExamen categoriaExamen,
-			TramiteExamen tramiteExamen, String resultadoExamen) {
+	public TramiteExamenDatoLinea(CategoriaDatosExamen categoriaDatoExamen, TramiteExamen tramiteExamen,
+			String resultadoExamen) {
 		super();
 		this.categoriaDatoExamen = categoriaDatoExamen;
 		this.tramiteExamen = tramiteExamen;
@@ -84,9 +84,12 @@ public class TramiteExamenDatoLinea {
 
 	@Override
 	public String toString() {
-		return "\nTramiteExamenDatoLinea [ide_TramiteExamenDatoLinea=" + ide_TramiteExamenDatoLinea
-				+ ", categoriaDatoExamen=" + categoriaDatoExamen + ", tramiteExamen=" + tramiteExamen + ", resultadoExamen=" + resultadoExamen + "]";
+		return "TramiteExamenDatoLinea [ide_TramiteExamenDatoLinea=" + ide_TramiteExamenDatoLinea
+				+ ", categoriaDatoExamen=" + categoriaDatoExamen + ", tramiteExamen=" + tramiteExamen
+				+ ", resultadoExamen=" + resultadoExamen + "]";
 	}
+	
+    
 	
 	
 	

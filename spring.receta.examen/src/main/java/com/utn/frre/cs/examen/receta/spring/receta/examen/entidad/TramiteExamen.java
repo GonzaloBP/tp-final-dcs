@@ -139,8 +139,11 @@ public class TramiteExamen {
 	public String toString() {
 		return "TramiteExamen [ideSolicitudExamen=" + ideSolicitudExamen + ", categoriaExamen=" + categoriaExamen
 				+ ", idePersonalMed=" + idePersonalMed + ", fecExamen=" + fecExamen + ", idInternacion=" + idInternacion
-				+ ", ideExpediente=" + ideExpediente + ", tramiteExamenDatoLineas=" + tramiteExamenDatoLineas + "]";
+				+ ", ideExpediente=" + ideExpediente + "]";
 	}
+
+
+	
 
 
 	
