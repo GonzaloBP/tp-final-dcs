@@ -7,37 +7,79 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+/**
+ * TramiteReceta:
+ * Representa el  medicamento/s dado a un paciente en una internacion en particular solicitada
+ * por un deteminado medico/s que atendieron su caso. Probablemente necesite mas informacion de la
+ * del grupo de medicamentos para mostrar o hacer alguna validacion.
+ * @author Gonza
+ * @version 1.0
+ */
 
 @Entity
+@Table(name="Tramite_Receta")
 public class TramiteReceta {
 
+	/**
+	 * Es el id que identifica a una tramite receta univocamente.
+	 */
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
 	@Column(name="IDE_RECETA")
 	private Long ide_receta;
 	
+	
+	/**
+	 * Es el id que identifica a el medico que receto este medicamento
+	 */
 	private int ide_personal_med;
 	
+	/**
+	 * Es el id que identifica a una la presentacion(inyectable,pastillas,pomada) del medicamento
+	 */
 	private int ide_presentacion_med;
 	
+	/**
+	 * Es el id que identifica a un medicamento en particular
+	 */
 	private int ide_med;
 	
+	/**
+	 * Es la fecha en la que se tiene que iniciar el tratamiento con el medicamento.
+	 */
 	private Date fecha_inicio_med;
 	
+	/**
+	 * Es la cantidad/dosis/tiempo en que se debe administrar el medicamento
+	 */
 	private String descripcionDosis;
 	
+	/**
+	 * Representa a que internacion de este paciente se refiere este tramite de receta
+	 */
 	private int id_internacion;
 	
+	/**
+	 * Representa al paciente al cual este tramite de receta se refiere
+	 */
 	private int ide_expediente;
 	
 	
+	
+	/**
+	 * Constructor por defecto de la clase TramiteReceta
+	*/
 	public TramiteReceta() {
 		
 	}
 
 	
-	
+	/**
+	 * Constructor  de la clase TramiteReceta necesario para un insert
+	*/
 	public TramiteReceta(int ide_personal_med, int ide_presentacion_med, int ide_med, Date fecha_inicio_med,
 			String descripcionDosis, int id_internacion, int ide_expediente) {
 		super();
@@ -50,7 +92,9 @@ public class TramiteReceta {
 		this.ide_expediente = ide_expediente;
 	}
 
-	
+	/**
+	 * Constructor  de la clase TramiteReceta necesario para un update
+	*/
 	public TramiteReceta(Long ide_receta, int ide_personal_med, int ide_presentacion_med, int ide_med,
 			Date fecha_inicio_med, String descripcionDosis, int id_internacion, int ide_expediente) {
 		super();
@@ -67,7 +111,7 @@ public class TramiteReceta {
 
 
 
-
+	//Getters y Setters------------------------------------------------
 
 
 	public Long getIde_receta() {
@@ -156,6 +200,8 @@ public class TramiteReceta {
 	}
 
 
+	
+	// // metodo ToString para poder ver el resultado en la consola y hacer pruebas
 	@Override
 	public String toString() {
 		return "\nTramiteReceta [ide_receta=" + ide_receta + ", ide_personal_med=" + ide_personal_med

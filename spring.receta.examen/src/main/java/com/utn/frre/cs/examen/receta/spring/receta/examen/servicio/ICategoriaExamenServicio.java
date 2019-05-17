@@ -6,6 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.CategoriaExamen;
 
+
+/**
+ * Interface que define las operaciones basicas get,insert,delete,update para <code>CategoriaExamen</code>.
+ * 
+ * @author Gonza
+ * @version 1.0
+ */
 @Repository
 public interface ICategoriaExamenServicio {
 

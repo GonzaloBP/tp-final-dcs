@@ -10,31 +10,77 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-
+/**
+ * TramiteExamen:
+ * Representa el tramite que un medico hace de una Categoria particular de examen
+ * para un paciente en particular en una  internacion
+ * @author Gonza
+ * @version 1.0
+ */
 @Entity
+@Table(name="Tramite_Examen")
 public class TramiteExamen {
 
+	/**
+	 * Es el id que identifica un Tramite de examen que inicio un medico de una Categoria particular de examen
+	 */
+	
 	@Id 
 	@GeneratedValue
 	@Column(name="IDE_SOLICITUD_EXAMEN")
 	private Long ideSolicitudExamen;
 	
+	
+	/**
+	 * Representa la categoria a la que puede pertenecer un examen
+	 */
 	@OneToOne 
     private CategoriaExamen categoriaExamen;
     
+	
+	/**
+	 * Representa el id que identifica al medico que inicio este tramite
+	 */
 	private int idePersonalMed;
+	
+	
+	/**
+	 * Representa la fecha en que se solicito este examen
+	 */
 	private Date fecExamen;
+	
+	
+	/**
+	 * Representa a que internacion de este paciente se refiere este tramite de examen
+	 */
 	private int idInternacion;
+	
+	/**
+	 * Representa al paciente al cual este tramite de examen se refiere
+	 */
 	private int ideExpediente;
+	
+	/**
+	 * Representa que un tramite puede tener multiples estudios solicitados que 
+	 * pertenescan a una misma categoria de examen
+	 */
 	
 	@OneToMany(mappedBy="tramiteExamen") 
 	private List<TramiteExamenDatoLinea> tramiteExamenDatoLineas = new ArrayList<>();
+	
+	/**
+	 * Constructor por defecto de la clase TramiteExamen
+	*/
 	
 	public TramiteExamen() {
 		
 	}
 	
+	/**
+	 * Constructor  de la clase TramiteExamen necesario para un update
+	*/
 	
 	public TramiteExamen(Long ideSolicitudExamen, CategoriaExamen categoriaExamen, int idePersonalMed, Date fecExamen,
 			int idInternacion, int ideExpediente) {
@@ -48,6 +94,10 @@ public class TramiteExamen {
 	}
 
 
+	/**
+	 * Constructor  de la clase TramiteExamen necesario para un insert
+	*/
+	
 	public TramiteExamen(CategoriaExamen categoriaExamen, int idePersonalMed, Date fecExamen, int idInternacion,
 			int ideExpediente) {
 		super();
@@ -74,6 +124,8 @@ public class TramiteExamen {
 		this.tramiteExamenDatoLineas.remove(tramiteExamenDatoLineas);
 	}
  
+	
+	// Getters y Setters -----------------------------------------------------------------------
 
 	public Long getIdeSolicitudExamen() {
 		return ideSolicitudExamen;
@@ -133,8 +185,11 @@ public class TramiteExamen {
 	public void setIdeExpediente(int ideExpediente) {
 		this.ideExpediente = ideExpediente;
 	}
-
-
+	
+	
+	// metodo ToString para poder ver el resultado en la consola y hacer pruebas 
+	
+	
 	@Override
 	public String toString() {
 		return "TramiteExamen [ideSolicitudExamen=" + ideSolicitudExamen + ", categoriaExamen=" + categoriaExamen

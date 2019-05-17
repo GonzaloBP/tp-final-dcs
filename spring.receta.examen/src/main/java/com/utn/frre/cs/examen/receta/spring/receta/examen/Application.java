@@ -20,19 +20,20 @@ import com.utn.frre.cs.examen.receta.spring.receta.examen.servicio.TramiteExamen
 import com.utn.frre.cs.examen.receta.spring.receta.examen.servicio.TramiteRecetaServicio;
 
 
-
+// por ahora solo la uso como una clase para poder testear por consola el acceso a datos
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
 	
-	
+	// uso logger para poder ver por consola los resultados de las operaciones (insert,delete,update,get) etc
+	//sobre las entidades por medios de mis clases de servicios
 	
 	private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
 
 	
 	
-	
+	// dependecias---------------------------------------------
 	
 	@Autowired
 	TramiteRecetaServicio servicioTramite;
@@ -49,16 +50,21 @@ public class Application implements CommandLineRunner {
 	@Autowired
 	TramiteExamenDatoLineaServicio servicioTramiteExamenDatoLinea;
 	
+	//-------------------------------------------------------------
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
+	
+	// Pruebas sobre las distintas entidades ( BD tenia datos cargados) 
+	// todas las pruebas funcionaron
+	
 	@Override
 	public void run(String... args) throws Exception {
 
 		
-		 
+	 /*   Borrar esto y cargar la BD mysql (myData.sql en la parte de test/src para poder ver el resultado)
  
 //      PRUEBAS DE DELETE,INSERT,UPDATE, ADD de TramiteRecetaServicio
 
@@ -79,8 +85,7 @@ public class Application implements CommandLineRunner {
 		// BORRADO DE TRAMITE RECETA (debe haber algo que borrar)
 		// servicioTramite.deleteTramiteReceta(1005);
 
-		// logger.info("\n ver resultado del borrado \n
-		// ->{}",servicioTramite.getAllTramiteReceta());
+		 logger.info("\n ver resultado del borrado ->{}",servicioTramite.getAllTramiteReceta());
 
 		// ACTUALIZACION de tramite receta
 		TramiteReceta unTramiteReceta = servicioTramite.getTramiteReceta(1003L);
@@ -152,7 +157,7 @@ public class Application implements CommandLineRunner {
 			//busco toda la informacion de TramiteExamenDatoLinea
 			logger.info("\n buscar info de TramiteExamen  \n->{}",servicioTramiteExamenDatoLinea.getAllTramiteExamenDatoLinea());
 	
-		 
+		*/
 		
 	}
 

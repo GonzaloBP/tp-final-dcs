@@ -8,13 +8,26 @@ import org.springframework.stereotype.Service;
 import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.CategoriaDatosExamen;
 import com.utn.frre.cs.examen.receta.spring.receta.examen.repositorio.CategoriaDatosExamenSpringDataRepositorio;
 
+/**
+ * servicio que implementa las operaciones basicas 
+ * get,insert,delete,update para <code>CategoriaDatosExamen</code>.
+ * cableo con CategoriaDatosExamenSpringDataRepositorio para ayudarme a definir el 
+ * comportamiento mas adecuado para esta clase
+ * @author Gonza
+ * @version 1.0
+ */
+
+
 @Service
 public class CategoriaDatosExamenServicio implements ICategoriaDatosExamenServicio {
 
+	
+	// Dependencies -----------------------------------------------------------
+	
 	@Autowired
 	private CategoriaDatosExamenSpringDataRepositorio categoriaDatosExamenRepositorio;
 
-	
+	// Operation --------------------------------------------------------------
 	
 	
 	@Override

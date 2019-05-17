@@ -8,13 +8,24 @@ import org.springframework.stereotype.Service;
 
 import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.TramiteExamenDatoLinea;
 import com.utn.frre.cs.examen.receta.spring.receta.examen.repositorio.TramiteExamenDatoLineaSpringDataRepositorio;
-
+/**
+ * servicio que implementa las operaciones basicas 
+ * get,insert,delete,update para <code>TramiteExamenDatoLinea</code>.
+ * cableo con TramiteExamenDatoLineaSpringDataRepositorio para ayudarme a definir el 
+ * comportamiento mas adecuado para esta clase
+ * @author Gonza
+ * @version 1.0
+ */
 @Service
 public class TramiteExamenDatoLineaServicio implements ITramiteExamenDatoLineaServicio {
 
+	// Dependencies -----------------------------------------------------------
+	
 	@Autowired
 	private TramiteExamenDatoLineaSpringDataRepositorio tramiteExamenDatoLineaRepositorio;
 
+	// Operation --------------------------------------------------------------
+	
 	@Override
 	public synchronized boolean addTramiteExamenDatoLinea(TramiteExamenDatoLinea tramiteExamenDatoLinea) {
 		 tramiteExamenDatoLineaRepositorio.save(tramiteExamenDatoLinea);

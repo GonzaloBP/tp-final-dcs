@@ -10,12 +10,25 @@ import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.CategoriaExame
 import com.utn.frre.cs.examen.receta.spring.receta.examen.repositorio.CategoriaExamenSpringDataRepositorio;
 
 
+
+/**
+ * servicio que implementa las operaciones basicas 
+ * get,insert,delete,update para <code>CategoriaExamen</code>.
+ * cableo con CategoriaExamenSpringDataRepositorio para ayudarme a definir el 
+ * comportamiento mas adecuado para esta clase
+ * @author Gonza
+ * @version 1.0
+ */
 @Service
 public class CategoriaExamenServicio implements ICategoriaExamenServicio {
 
+	// Dependencies -----------------------------------------------------------
+	
 	@Autowired
 	private CategoriaExamenSpringDataRepositorio categoriaExamenRepositorio;
 
+	// Operation --------------------------------------------------------------
+	
 	@Override
 	public synchronized boolean addCategoriaExamen(CategoriaExamen categoriaExamen) {
 		 categoriaExamenRepositorio.save(categoriaExamen);

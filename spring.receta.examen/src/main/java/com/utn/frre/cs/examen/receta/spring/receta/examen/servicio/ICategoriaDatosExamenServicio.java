@@ -1,5 +1,14 @@
 package com.utn.frre.cs.examen.receta.spring.receta.examen.servicio;
 
+
+/**
+ * Interface que define las operaciones basicas get,insert,delete,update para <code>CategoriaDatosExamen</code>.
+ * 
+ * @author Gonza
+ * @version 1.0
+ */
+
+
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
