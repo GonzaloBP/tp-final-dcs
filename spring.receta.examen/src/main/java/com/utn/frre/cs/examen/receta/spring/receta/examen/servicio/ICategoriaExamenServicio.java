@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.CategoriaExamen;
 
-
 /**
- * Interface que define las operaciones basicas get,insert,delete,update para <code>CategoriaExamen</code>.
+ * Interface que define las operaciones basicas get,insert,delete,update para
+ * <code>CategoriaExamen</code>.
  * 
  * @author Gonza
  * @version 1.0
@@ -16,14 +16,14 @@ import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.CategoriaExame
 @Repository
 public interface ICategoriaExamenServicio {
 
-    boolean addCategoriaExamen(CategoriaExamen categoriaExamen);
-	
+	boolean addCategoriaExamen(CategoriaExamen categoriaExamen);
+
 	CategoriaExamen getCategoriaExamen(long categoriaExamen_id);
-	
+
 	void updateCategoriaExamen(CategoriaExamen categoriaExamen);
-	
+
 	void deleteCategoriaExamen(int categoriaExamen_id);
-	
+
 	List<CategoriaExamen> getAllCategoriaExamen();
-	
+
 }

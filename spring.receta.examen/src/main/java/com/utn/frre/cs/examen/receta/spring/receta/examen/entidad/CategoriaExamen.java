@@ -1,7 +1,6 @@
 package com.utn.frre.cs.examen.receta.spring.receta.examen.entidad;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,85 +11,75 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * Categoria examen:
- * Representa la categoria a la que puede pertenecer un examen 
+ * Categoria examen: Representa la categoria a la que puede pertenecer un examen
+ * 
  * @author Gonza
- *@version 1.0
+ * @version 1.0
  */
 
 @Entity
-@Table(name="Categoria_Examen")
+@Table(name = "Categoria_Examen")
 public class CategoriaExamen {
 
 	/**
 	 * Es el id que identifica un tipo examen en particular
 	 */
-		
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="COD_EXAMEN")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "COD_EXAMEN")
 	private Long cod_examen;
-	
+
 	/**
 	 * Es la descripcion del tipo de examen
 	 */
-	
+
 	private String descripcionExamen;
 
-	
-	
-	@OneToMany(mappedBy="categoriaExamen") 
-	private List<CategoriaDatosExamen> catDatosExamen = new ArrayList<>();
-	
-	
+	/**
+	 * Conjunto de estudios que pertenecen a esta categoria de examen
+	 */
+
+	@OneToMany(mappedBy = "categoriaExamen")
+	private Set<CategoriaDatosExamen> categoriaDatosExamen;
+
 	/**
 	 * Constructor por defecto de CategoriaExamen
 	 */
-	
+
 	public CategoriaExamen() {
-		
+
 	}
-	
+
 	/**
 	 * Constructor necesario para realizar un insert (id se autogenera)
 	 */
-	
+
 	public CategoriaExamen(String descripcionExamen) {
 		super();
 		this.descripcionExamen = descripcionExamen;
 	}
 
 	/**
-	 * Constructor necesario para realizar un update  
+	 * Constructor necesario para realizar un update
 	 */
-	
-	
+
 	public CategoriaExamen(Long cod_examen, String descripcionExamen) {
 		super();
 		this.cod_examen = cod_examen;
 		this.descripcionExamen = descripcionExamen;
 	}
 
-	
-	
-
-	public List<CategoriaDatosExamen> getCatDatosExamen() {
-		return catDatosExamen;
-	}
-
-
-
-	public void addCategoriaDatosExamen(CategoriaDatosExamen catDatosExamen) {
-		this.catDatosExamen.add(catDatosExamen);
-	}
-
-	public void removeCategoriaDatosExamen(CategoriaDatosExamen catDatosExamen) {
-		this.catDatosExamen.remove(catDatosExamen);
-	}
-	
-
 	// Getters/Setters --------------------------------------------------------
-	
+
+	public Set<CategoriaDatosExamen> getCatDatosExamen() {
+		return categoriaDatosExamen;
+	}
+
+	public void setCatDatosExamen(Set<CategoriaDatosExamen> catDatosExamen) {
+		this.categoriaDatosExamen = catDatosExamen;
+	}
+
 	public Long getCod_examen() {
 		return cod_examen;
 	}
@@ -107,13 +96,19 @@ public class CategoriaExamen {
 		this.descripcionExamen = descripcionExamen;
 	}
 
-    // metodo ToString para poder ver el resultado en la consola y hacer pruebas
-
+	
+	// metodo ToString para poder ver el resultado en la consola y hacer pruebas
 	@Override
 	public String toString() {
-		return "\nCategoriaExamen [cod_examen=" + cod_examen + ", descripcionExamen=" + descripcionExamen + "]";
+		return "CategoriaExamen [cod_examen=" + cod_examen + ", descripcionExamen=" + descripcionExamen + "]";
 	}
 
 	
 	
+
+
+	
+
+	
+
 }

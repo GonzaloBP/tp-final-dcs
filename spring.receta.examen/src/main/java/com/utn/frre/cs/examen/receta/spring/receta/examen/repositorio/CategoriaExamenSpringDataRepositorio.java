@@ -16,5 +16,5 @@ import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.CategoriaExame
 public interface CategoriaExamenSpringDataRepositorio extends JpaRepository<CategoriaExamen, Long> {
 
 	// mis metodos particulares van aca
-	
+
 }

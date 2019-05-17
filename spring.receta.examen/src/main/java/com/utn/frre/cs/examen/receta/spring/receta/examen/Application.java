@@ -33,7 +33,7 @@ public class Application implements CommandLineRunner {
 
 	
 	
-	// dependecias---------------------------------------------
+	// dependecias que use para pruebas contra BD(mySQL)cargada de datos---------------------------------------------
 	
 	@Autowired
 	TramiteRecetaServicio servicioTramite;
@@ -64,7 +64,7 @@ public class Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		
-	 /*   Borrar esto y cargar la BD mysql (myData.sql en la parte de test/src para poder ver el resultado)
+	 /*   Borrar esto y cargar la BD mysql (mysqlData.sql en la parte de test/src para poder ver el resultado)
  
 //      PRUEBAS DE DELETE,INSERT,UPDATE, ADD de TramiteRecetaServicio
 
@@ -155,7 +155,7 @@ public class Application implements CommandLineRunner {
 			servicioTramiteExamenDatoLinea.addTramiteExamenDatoLinea(unTramiteExamenDatoLinea);
 			
 			//busco toda la informacion de TramiteExamenDatoLinea
-			logger.info("\n buscar info de TramiteExamen  \n->{}",servicioTramiteExamenDatoLinea.getAllTramiteExamenDatoLinea());
+			logger.info("\n buscar info de TramiteExamenDatoLinea  \n->{}",servicioTramiteExamenDatoLinea.getAllTramiteExamenDatoLinea());
 	
 		*/
 		

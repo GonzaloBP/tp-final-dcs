@@ -16,5 +16,5 @@ import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.TramiteExamenD
 public interface TramiteExamenDatoLineaSpringDataRepositorio extends JpaRepository<TramiteExamenDatoLinea, Long> {
 
 	// mis metodos particulares
-	
+
 }

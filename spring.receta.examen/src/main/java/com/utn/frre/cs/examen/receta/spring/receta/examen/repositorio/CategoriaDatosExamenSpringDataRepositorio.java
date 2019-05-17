@@ -1,6 +1,5 @@
 package com.utn.frre.cs.examen.receta.spring.receta.examen.repositorio;
 
-
 /**
  * Repositorio de Acceso a Datos para <code>CategoriaDatosExamen</code>.
  * 
@@ -17,5 +16,5 @@ import com.utn.frre.cs.examen.receta.spring.receta.examen.entidad.CategoriaDatos
 public interface CategoriaDatosExamenSpringDataRepositorio extends JpaRepository<CategoriaDatosExamen, Long> {
 
 	// mis metodos particulares
-	
+
 }
