@@ -19,7 +19,7 @@ import com.utn.frre.cs.examen.receta.spring.receta.examen.repositorio.TramiteExa
  * @version 1.0
  */
 @Service
-public class TramiteExamenDatoLineaServicio implements ITramiteExamenDatoLineaServicio {
+public class TramiteExamenDatoLineaServicio {
 
 	// Dependencies -----------------------------------------------------------
 
@@ -28,32 +28,32 @@ public class TramiteExamenDatoLineaServicio implements ITramiteExamenDatoLineaSe
 
 	// Operation --------------------------------------------------------------
 
-	@Override
+	
 	public synchronized boolean addTramiteExamenDatoLinea(TramiteExamenDatoLinea tramiteExamenDatoLinea) {
 		tramiteExamenDatoLineaRepositorio.save(tramiteExamenDatoLinea);
 		return true;
 
 	}
 
-	@Override
+	
 	public TramiteExamenDatoLinea getTramiteExamenDatoLinea(long tramiteExamenDatoLinea_id) {
 		TramiteExamenDatoLinea obj = tramiteExamenDatoLineaRepositorio.findById(tramiteExamenDatoLinea_id).get();
 		return obj;
 	}
 
-	@Override
+	
 	public void updateTramiteExamenDatoLinea(TramiteExamenDatoLinea tramiteExamenDatoLinea) {
 		tramiteExamenDatoLineaRepositorio.save(tramiteExamenDatoLinea);
 
 	}
 
-	@Override
+	
 	public void deleteTramiteExamenDatoLinea(int tramiteExamenDatoLinea_id) {
 		tramiteExamenDatoLineaRepositorio.delete(getTramiteExamenDatoLinea(tramiteExamenDatoLinea_id));
 
 	}
 
-	@Override
+	
 	public List<TramiteExamenDatoLinea> getAllTramiteExamenDatoLinea() {
 		List<TramiteExamenDatoLinea> list = new ArrayList<>();
 		tramiteExamenDatoLineaRepositorio.findAll().forEach(e -> list.add(e));

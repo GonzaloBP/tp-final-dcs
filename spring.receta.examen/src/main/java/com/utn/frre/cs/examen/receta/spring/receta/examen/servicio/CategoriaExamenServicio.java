@@ -18,7 +18,7 @@ import com.utn.frre.cs.examen.receta.spring.receta.examen.repositorio.CategoriaE
  * @version 1.0
  */
 @Service
-public class CategoriaExamenServicio implements ICategoriaExamenServicio {
+public class CategoriaExamenServicio  {
 
 	// Dependencies -----------------------------------------------------------
 
@@ -27,32 +27,32 @@ public class CategoriaExamenServicio implements ICategoriaExamenServicio {
 
 	// Operation --------------------------------------------------------------
 
-	@Override
+	
 	public synchronized boolean addCategoriaExamen(CategoriaExamen categoriaExamen) {
 		categoriaExamenRepositorio.save(categoriaExamen);
 		return true;
 
 	}
 
-	@Override
+	
 	public CategoriaExamen getCategoriaExamen(long categoriaExamen_id) {
 		CategoriaExamen obj = categoriaExamenRepositorio.findById(categoriaExamen_id).get();
 		return obj;
 	}
 
-	@Override
+	
 	public void updateCategoriaExamen(CategoriaExamen categoriaExamen) {
 		categoriaExamenRepositorio.save(categoriaExamen);
 
 	}
 
-	@Override
+	
 	public void deleteCategoriaExamen(int categoriaExamen_id) {
 		categoriaExamenRepositorio.delete(getCategoriaExamen(categoriaExamen_id));
 
 	}
 
-	@Override
+	
 	public List<CategoriaExamen> getAllCategoriaExamen() {
 		List<CategoriaExamen> list = new ArrayList<>();
 		categoriaExamenRepositorio.findAll().forEach(e -> list.add(e));

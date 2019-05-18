@@ -18,7 +18,7 @@ import com.utn.frre.cs.examen.receta.spring.receta.examen.repositorio.TramiteRec
  * @version 1.0
  */
 @Service
-public class TramiteRecetaServicio implements ITramiteRecetaServicio {
+public class TramiteRecetaServicio  {
 
 	// Dependencies -----------------------------------------------------------
 
@@ -27,32 +27,32 @@ public class TramiteRecetaServicio implements ITramiteRecetaServicio {
 
 	// Operation --------------------------------------------------------------
 
-	@Override
+	
 	public synchronized boolean addTramiteReceta(TramiteReceta tramiteReceta) {
 		tramiteRecetaRepositorio.save(tramiteReceta);
 		return true;
 
 	}
 
-	@Override
+	
 	public TramiteReceta getTramiteReceta(long tramiteReceta_id) {
 		TramiteReceta obj = tramiteRecetaRepositorio.findById(tramiteReceta_id).get();
 		return obj;
 	}
 
-	@Override
+	
 	public void updateTramiteReceta(TramiteReceta tramiteReceta) {
 		tramiteRecetaRepositorio.save(tramiteReceta);
 
 	}
 
-	@Override
+	
 	public void deleteTramiteReceta(int tramiteReceta_id) {
 		tramiteRecetaRepositorio.delete(getTramiteReceta(tramiteReceta_id));
 
 	}
 
-	@Override
+	
 	public List<TramiteReceta> getAllTramiteReceta() {
 		List<TramiteReceta> list = new ArrayList<>();
 		tramiteRecetaRepositorio.findAll().forEach(e -> list.add(e));

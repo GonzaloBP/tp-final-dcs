@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -59,15 +61,12 @@ public class TramiteReceta {
 	private String descripcionDosis;
 
 	/**
-	 * Representa a que internacion de este paciente se refiere este tramite de
-	 * receta
+	 * Es la historia clinica donde se registrara este tramite de receta
 	 */
-	private int id_internacion;
-
-	/**
-	 * Representa al paciente al cual este tramite de receta se refiere
-	 */
-	private int ide_expediente;
+	
+	@ManyToOne
+	@JoinColumn(name="id_historiaclinica",nullable=false)
+	private Internacion internacion;
 
 	/**
 	 * Constructor por defecto de la clase TramiteReceta
@@ -80,22 +79,24 @@ public class TramiteReceta {
 	 * Constructor de la clase TramiteReceta necesario para un insert
 	 */
 	public TramiteReceta(int ide_personal_med, int ide_presentacion_med, int ide_med, Date fecha_inicio_med,
-			String descripcionDosis, int id_internacion, int ide_expediente) {
+			String descripcionDosis, Internacion internacion) {
 		super();
 		this.ide_personal_med = ide_personal_med;
 		this.ide_presentacion_med = ide_presentacion_med;
 		this.ide_med = ide_med;
 		this.fecha_inicio_med = fecha_inicio_med;
 		this.descripcionDosis = descripcionDosis;
-		this.id_internacion = id_internacion;
-		this.ide_expediente = ide_expediente;
+		this.internacion = internacion;
 	}
+	
+	
 
 	/**
 	 * Constructor de la clase TramiteReceta necesario para un update
 	 */
+	
 	public TramiteReceta(Long ide_receta, int ide_personal_med, int ide_presentacion_med, int ide_med,
-			Date fecha_inicio_med, String descripcionDosis, int id_internacion, int ide_expediente) {
+			Date fecha_inicio_med, String descripcionDosis, Internacion internacion) {
 		super();
 		this.ide_receta = ide_receta;
 		this.ide_personal_med = ide_personal_med;
@@ -103,12 +104,12 @@ public class TramiteReceta {
 		this.ide_med = ide_med;
 		this.fecha_inicio_med = fecha_inicio_med;
 		this.descripcionDosis = descripcionDosis;
-		this.id_internacion = id_internacion;
-		this.ide_expediente = ide_expediente;
+		this.internacion = internacion;
 	}
 
+	
 	// Getters y Setters------------------------------------------------
-
+	
 	public Long getIde_receta() {
 		return ide_receta;
 	}
@@ -157,28 +158,26 @@ public class TramiteReceta {
 		this.descripcionDosis = descripcionDosis;
 	}
 
-	public int getId_internacion() {
-		return id_internacion;
+	public Internacion getInternacion() {
+		return internacion;
 	}
 
-	public void setId_internacion(int id_internacion) {
-		this.id_internacion = id_internacion;
+	public void setInternacion(Internacion internacion) {
+		this.internacion = internacion;
 	}
 
-	public int getIde_expediente() {
-		return ide_expediente;
-	}
-
-	public void setIde_expediente(int ide_expediente) {
-		this.ide_expediente = ide_expediente;
-	}
-
-	// // metodo ToString para poder ver el resultado en la consola y hacer pruebas
 	@Override
 	public String toString() {
-		return "\nTramiteReceta [ide_receta=" + ide_receta + ", ide_personal_med=" + ide_personal_med
-				+ ", fecha_inicio_med=" + fecha_inicio_med + ", descripcionDosis=" + descripcionDosis
-				+ ", id_internacion=" + id_internacion + ", ide_expediente=" + ide_expediente + "]";
+		return "TramiteReceta [ide_receta=" + ide_receta + ", ide_personal_med=" + ide_personal_med
+				+ ", ide_presentacion_med=" + ide_presentacion_med + ", ide_med=" + ide_med + ", fecha_inicio_med="
+				+ fecha_inicio_med + ", descripcionDosis=" + descripcionDosis + ", internacion=" + internacion + "]";
 	}
+
+
+	
+
+
+
+	
 
 }

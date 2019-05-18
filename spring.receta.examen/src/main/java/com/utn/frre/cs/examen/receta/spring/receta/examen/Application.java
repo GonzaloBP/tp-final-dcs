@@ -63,8 +63,8 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		
-	 /*   Borrar esto y cargar la BD mysql (mysqlData.sql en la parte de test/src para poder ver el resultado)
+	  /*
+	    //Borrar esto y cargar la BD mysql (mysqlData.sql en la parte de test/src para poder ver el resultado)
  
 //      PRUEBAS DE DELETE,INSERT,UPDATE, ADD de TramiteRecetaServicio
 

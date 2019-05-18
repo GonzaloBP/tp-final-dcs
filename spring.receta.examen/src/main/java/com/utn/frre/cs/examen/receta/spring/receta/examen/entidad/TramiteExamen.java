@@ -7,8 +7,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -32,12 +33,6 @@ public class TramiteExamen {
 	@Column(name = "IDE_SOLICITUD_EXAMEN")
 	private Long ideSolicitudExamen;
 
-	/**
-	 * Representa la categoria a la que puede pertenecer un examen
-	 * verificar estar relacion.
-	 */
-	@OneToOne
-	private CategoriaExamen categoriaExamen;
 
 	/**
 	 * Representa el id que identifica al medico que inicio este tramite
@@ -49,17 +44,13 @@ public class TramiteExamen {
 	 */
 	private Date fecExamen;
 
+	
 	/**
-	 * Representa a que internacion de este paciente se refiere este tramite de
-	 * examen
+	 * Es la historia clinica donde se registrara este tramite de receta
 	 */
-	private int idInternacion;
-
-	/**
-	 * Representa al paciente al cual este tramite de examen se refiere
-	 */
-	private int ideExpediente;
-
+	@ManyToOne
+	@JoinColumn(name="id_historiaclinica",nullable=false)
+	private Internacion internacion;
 	/**
 	 * Representa que un tramite puede tener multiples estudios solicitados 
 	 * 
@@ -76,46 +67,28 @@ public class TramiteExamen {
 
 	}
 
-	/**
-	 * Constructor de la clase TramiteExamen necesario para un update
-	 */
-
 	public TramiteExamen(Long ideSolicitudExamen, CategoriaExamen categoriaExamen, int idePersonalMed, Date fecExamen,
-			int idInternacion, int ideExpediente) {
+			Internacion internacion, Set<TramiteExamenDatoLinea> tramiteExamenDatoLineas) {
 		super();
 		this.ideSolicitudExamen = ideSolicitudExamen;
-		this.categoriaExamen = categoriaExamen;
 		this.idePersonalMed = idePersonalMed;
 		this.fecExamen = fecExamen;
-		this.idInternacion = idInternacion;
-		this.ideExpediente = ideExpediente;
-	}
-
-	/**
-	 * Constructor de la clase TramiteExamen necesario para un insert
-	 */
-
-	public TramiteExamen(CategoriaExamen categoriaExamen, int idePersonalMed, Date fecExamen, int idInternacion,
-			int ideExpediente) {
-		super();
-		this.categoriaExamen = categoriaExamen;
-		this.idePersonalMed = idePersonalMed;
-		this.fecExamen = fecExamen;
-		this.idInternacion = idInternacion;
-		this.ideExpediente = ideExpediente;
-	}
-
-	// Getters y Setters
-	// -----------------------------------------------------------------------
-
-	public Set<TramiteExamenDatoLinea> getTramiteExamenDatoLineas() {
-		return tramiteExamenDatoLineas;
-	}
-
-	public void setTramiteExamenDatoLineas(Set<TramiteExamenDatoLinea> tramiteExamenDatoLineas) {
+		this.internacion = internacion;
 		this.tramiteExamenDatoLineas = tramiteExamenDatoLineas;
 	}
 
+	public TramiteExamen(CategoriaExamen categoriaExamen, int idePersonalMed, Date fecExamen, Internacion internacion,
+			Set<TramiteExamenDatoLinea> tramiteExamenDatoLineas) {
+		super();
+		this.idePersonalMed = idePersonalMed;
+		this.fecExamen = fecExamen;
+		this.internacion = internacion;
+		this.tramiteExamenDatoLineas = tramiteExamenDatoLineas;
+	}
+
+	//Getters y Setters-----------------------------------------
+	
+	
 	public Long getIdeSolicitudExamen() {
 		return ideSolicitudExamen;
 	}
@@ -124,13 +97,6 @@ public class TramiteExamen {
 		this.ideSolicitudExamen = ideSolicitudExamen;
 	}
 
-	public CategoriaExamen getCategoriaExamen() {
-		return categoriaExamen;
-	}
-
-	public void setCategoriaExamen(CategoriaExamen categoriaExamen) {
-		this.categoriaExamen = categoriaExamen;
-	}
 
 	public int getIdePersonalMed() {
 		return idePersonalMed;
@@ -148,29 +114,29 @@ public class TramiteExamen {
 		this.fecExamen = fecExamen;
 	}
 
-	public int getIdInternacion() {
-		return idInternacion;
+	public Internacion getInternacion() {
+		return internacion;
 	}
 
-	public void setIdInternacion(int idInternacion) {
-		this.idInternacion = idInternacion;
+	public void setInternacion(Internacion internacion) {
+		this.internacion = internacion;
 	}
 
-	public int getIdeExpediente() {
-		return ideExpediente;
+	public Set<TramiteExamenDatoLinea> getTramiteExamenDatoLineas() {
+		return tramiteExamenDatoLineas;
 	}
 
-	public void setIdeExpediente(int ideExpediente) {
-		this.ideExpediente = ideExpediente;
+	public void setTramiteExamenDatoLineas(Set<TramiteExamenDatoLinea> tramiteExamenDatoLineas) {
+		this.tramiteExamenDatoLineas = tramiteExamenDatoLineas;
 	}
-
-	// metodo ToString para poder ver el resultado en la consola y hacer pruebas
 
 	@Override
 	public String toString() {
-		return "TramiteExamen [ideSolicitudExamen=" + ideSolicitudExamen + ", categoriaExamen=" + categoriaExamen
-				+ ", idePersonalMed=" + idePersonalMed + ", fecExamen=" + fecExamen + ", idInternacion=" + idInternacion
-				+ ", ideExpediente=" + ideExpediente + "]";
+		return "TramiteExamen [ideSolicitudExamen=" + ideSolicitudExamen + ", categoriaExamen=" 
+				+ ", idePersonalMed=" + idePersonalMed + ", fecExamen=" + fecExamen + ", internacion=" + internacion
+				+ "]";
 	}
+
+	
 
 }
