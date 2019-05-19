@@ -21,7 +21,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "Categoria_Datos_Examen")
+@Table(name = "Tipo_examen_estudio")
 public class CategoriaDatosExamen {
 
 	/**

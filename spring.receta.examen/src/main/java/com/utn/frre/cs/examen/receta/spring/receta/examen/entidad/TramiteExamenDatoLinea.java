@@ -1,5 +1,7 @@
 package com.utn.frre.cs.examen.receta.spring.receta.examen.entidad;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +20,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "Tramite_Examen_Dato_Linea")
+@Table(name = "Tramite_Examen_estudio_solicitado")
 public class TramiteExamenDatoLinea {
 
 	/**
@@ -52,9 +54,41 @@ public class TramiteExamenDatoLinea {
 	 */
 
 	private String resultadoExamen;
+	
+	
+	private String estadoEstudio;
+
+	
+	private Date fechaEstudio;
+
+	public TramiteExamenDatoLinea() {
+		
+	}
+
+	public TramiteExamenDatoLinea(Long ide_TramiteExamenDatoLinea, CategoriaDatosExamen categoriaDatoExamen,
+			TramiteExamen tramiteExamen, String resultadoExamen, String estadoEstudio, Date fechaEstudio) {
+		super();
+		this.ide_TramiteExamenDatoLinea = ide_TramiteExamenDatoLinea;
+		this.categoriaDatoExamen = categoriaDatoExamen;
+		this.tramiteExamen = tramiteExamen;
+		this.resultadoExamen = resultadoExamen;
+		this.estadoEstudio = estadoEstudio;
+		this.fechaEstudio = fechaEstudio;
+	}
+
+
+	public TramiteExamenDatoLinea(CategoriaDatosExamen categoriaDatoExamen, TramiteExamen tramiteExamen,
+			String resultadoExamen, String estadoEstudio, Date fechaEstudio) {
+		super();
+		this.categoriaDatoExamen = categoriaDatoExamen;
+		this.tramiteExamen = tramiteExamen;
+		this.resultadoExamen = resultadoExamen;
+		this.estadoEstudio = estadoEstudio;
+		this.fechaEstudio = fechaEstudio;
+	}
 
 	// Getters y Setters
-
+	
 	public Long getIde_TramiteExamenDatoLinea() {
 		return ide_TramiteExamenDatoLinea;
 	}
@@ -87,47 +121,36 @@ public class TramiteExamenDatoLinea {
 		this.resultadoExamen = resultadoExamen;
 	}
 
-	/**
-	 * Es un constructor por defecto de la clase TramiteExamenDatoLinea
-	 */
-
-	public TramiteExamenDatoLinea() {
-
+	public String getEstadoEstudio() {
+		return estadoEstudio;
 	}
 
-	/**
-	 * Es un constructor de la clase TramiteExamenDatoLinea necesario para un Update
-	 */
-
-	public TramiteExamenDatoLinea(Long ide_TramiteExamenDatoLinea, CategoriaDatosExamen categoriaDatoExamen,
-			TramiteExamen tramiteExamen, String resultadoExamen) {
-		super();
-		this.ide_TramiteExamenDatoLinea = ide_TramiteExamenDatoLinea;
-		this.categoriaDatoExamen = categoriaDatoExamen;
-		this.tramiteExamen = tramiteExamen;
-		this.resultadoExamen = resultadoExamen;
+	public void setEstadoEstudio(String estadoEstudio) {
+		this.estadoEstudio = estadoEstudio;
 	}
 
-	/**
-	 * Es un constructor de la clase TramiteExamenDatoLinea necesario para un insert
-	 */
-
-	public TramiteExamenDatoLinea(CategoriaDatosExamen categoriaDatoExamen, TramiteExamen tramiteExamen,
-			String resultadoExamen) {
-		super();
-		this.categoriaDatoExamen = categoriaDatoExamen;
-		this.tramiteExamen = tramiteExamen;
-		this.resultadoExamen = resultadoExamen;
+	public Date getFechaEstudio() {
+		return fechaEstudio;
 	}
 
-	// metodo ToString para poder ver el resultado en la consola y hacer pruebas
-	// agrego \n para mejorar la legibilidad en consola.
+	public void setFechaEstudio(Date fechaEstudio) {
+		this.fechaEstudio = fechaEstudio;
+	}
 
 	@Override
 	public String toString() {
-		return "\nTramiteExamenDatoLinea [ide_TramiteExamenDatoLinea=" + ide_TramiteExamenDatoLinea
+		return "TramiteExamenDatoLinea [ide_TramiteExamenDatoLinea=" + ide_TramiteExamenDatoLinea
 				+ ", categoriaDatoExamen=" + categoriaDatoExamen + ", tramiteExamen=" + tramiteExamen
-				+ ", resultadoExamen=" + resultadoExamen + "]\n";
+				+ ", resultadoExamen=" + resultadoExamen + ", estadoEstudio=" + estadoEstudio + ", fechaEstudio="
+				+ fechaEstudio + "]";
 	}
 
+	
+	
+
+	
+
+	
+	
+	
 }
