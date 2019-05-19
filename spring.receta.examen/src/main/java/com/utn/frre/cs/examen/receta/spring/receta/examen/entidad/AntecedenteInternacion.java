@@ -1,6 +1,6 @@
 package com.utn.frre.cs.examen.receta.spring.receta.examen.entidad;
 
-import java.util.Set;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class AntecedenteInternacion {
 
 	/**
-	 * Es el id que identifica un  TipoAntecedente
+	 * Es el id que identifica un  Antecedente de Internacion
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,30 +25,53 @@ public class AntecedenteInternacion {
 	private Long id_antecendete_internacion;
 
 	@ManyToOne
+	@JoinColumn(name="id_tipo_antecendente", nullable=false)
+	private TipoAntecedente tipoAntecedente;
+	
+	@ManyToOne
 	@JoinColumn(name="id_historiaclinica", nullable=false)
 	private Internacion internacion;
 	
-	@OneToMany(mappedBy="antecedenteInternacion")
-	 private Set<ElementoAntecedente> elementoAntecedente;
+	/**
+	 * Es la descripcion del  Antecedente
+	 */
+	private String observacion;
+	
+	/**
+	 * Es la valoracion del  Antecedente 
+	 */
+	private String valoracion;
 
+	
 	public AntecedenteInternacion() {
 		
 	}
+
+
 	
 	
-	public AntecedenteInternacion(Long id_antecendete_internacion, Internacion internacion,
-			Set<ElementoAntecedente> elementoAntecedente) {
+	public AntecedenteInternacion(Long id_antecendete_internacion, TipoAntecedente tipoAntecedente,
+			Internacion internacion, String observacion, String valoracion) {
 		super();
 		this.id_antecendete_internacion = id_antecendete_internacion;
+		this.tipoAntecedente = tipoAntecedente;
 		this.internacion = internacion;
-		this.elementoAntecedente = elementoAntecedente;
+		this.observacion = observacion;
+		this.valoracion = valoracion;
 	}
 
-	public AntecedenteInternacion(Internacion internacion, Set<ElementoAntecedente> elementoAntecedente) {
+
+	
+	public AntecedenteInternacion(TipoAntecedente tipoAntecedente, Internacion internacion, String observacion,
+			String valoracion) {
 		super();
+		this.tipoAntecedente = tipoAntecedente;
 		this.internacion = internacion;
-		this.elementoAntecedente = elementoAntecedente;
+		this.observacion = observacion;
+		this.valoracion = valoracion;
 	}
+
+
 
 
 	public Long getId_antecendete_internacion() {
@@ -58,6 +81,16 @@ public class AntecedenteInternacion {
 
 	public void setId_antecendete_internacion(Long id_antecendete_internacion) {
 		this.id_antecendete_internacion = id_antecendete_internacion;
+	}
+
+
+	public TipoAntecedente getTipoAntecedente() {
+		return tipoAntecedente;
+	}
+
+
+	public void setTipoAntecedente(TipoAntecedente tipoAntecedente) {
+		this.tipoAntecedente = tipoAntecedente;
 	}
 
 
@@ -71,21 +104,36 @@ public class AntecedenteInternacion {
 	}
 
 
-	public Set<ElementoAntecedente> getElementoAntecedente() {
-		return elementoAntecedente;
+	public String getObservacion() {
+		return observacion;
 	}
 
 
-	public void setElementoAntecedente(Set<ElementoAntecedente> elementoAntecedente) {
-		this.elementoAntecedente = elementoAntecedente;
+	public void setObservacion(String observacion) {
+		this.observacion = observacion;
 	}
 
-    // ojo con las listas/set en toString
+
+	public String getValoracion() {
+		return valoracion;
+	}
+
+
+	public void setValoracion(String valoracion) {
+		this.valoracion = valoracion;
+	}
+
+
+
+
 	@Override
 	public String toString() {
-		return "AntecedenteInternacion [id_antecendete_internacion=" + id_antecendete_internacion + ", internacion="
-				+ internacion + ", elementoAntecedente=" + elementoAntecedente + "]";
+		return "AntecedenteInternacion [id_antecendete_internacion=" + id_antecendete_internacion + ", tipoAntecedente="
+				+ tipoAntecedente + ", internacion=" + internacion + ", observacion=" + observacion + ", valoracion="
+				+ valoracion + "]";
 	}
+	
+	
 	
 	
 	

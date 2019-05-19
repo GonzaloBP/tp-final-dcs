@@ -28,13 +28,13 @@ public class TipoAntecedente {
 	/**
 	 * Es la descripcion del tipo de Antecedente
 	 */
-
+	
 	private String descripcionTipoAntecedente;
 	
-	 @OneToMany(mappedBy="tipoAntecedente")
-	 private Set<ElementoAntecedente> elementoAntecedente;	
+	@OneToMany(mappedBy="tipoAntecedente")
+	private Set<AntecedenteInternacion> antecedenteInternacion;
 	
-	
+	 	
 	@ManyToOne
 	@JoinColumn(name="id_categoria_antecendente", nullable=false)
 	private CategoriaAntecedente categoriaAntecedente;
@@ -45,23 +45,32 @@ public class TipoAntecedente {
 	}
 
 
+	
+
+
 	public TipoAntecedente(Long id_tipo_antecendente, String descripcionTipoAntecedente,
-			Set<ElementoAntecedente> elementoAntecedente, CategoriaAntecedente categoriaAntecedente) {
+			Set<AntecedenteInternacion> antecedenteInternacion, CategoriaAntecedente categoriaAntecedente) {
 		super();
 		this.id_tipo_antecendente = id_tipo_antecendente;
 		this.descripcionTipoAntecedente = descripcionTipoAntecedente;
-		this.elementoAntecedente = elementoAntecedente;
+		this.antecedenteInternacion = antecedenteInternacion;
 		this.categoriaAntecedente = categoriaAntecedente;
 	}
 
 
-	public TipoAntecedente(String descripcionTipoAntecedente, Set<ElementoAntecedente> elementoAntecedente,
+
+
+
+	public TipoAntecedente(String descripcionTipoAntecedente, Set<AntecedenteInternacion> antecedenteInternacion,
 			CategoriaAntecedente categoriaAntecedente) {
 		super();
 		this.descripcionTipoAntecedente = descripcionTipoAntecedente;
-		this.elementoAntecedente = elementoAntecedente;
+		this.antecedenteInternacion = antecedenteInternacion;
 		this.categoriaAntecedente = categoriaAntecedente;
 	}
+
+
+
 
 
 	public Long getId_tipo_antecendente() {
@@ -84,16 +93,6 @@ public class TipoAntecedente {
 	}
 
 
-	public Set<ElementoAntecedente> getElementoAntecedente() {
-		return elementoAntecedente;
-	}
-
-
-	public void setElementoAntecedente(Set<ElementoAntecedente> elementoAntecedente) {
-		this.elementoAntecedente = elementoAntecedente;
-	}
-
-
 	public CategoriaAntecedente getCategoriaAntecedente() {
 		return categoriaAntecedente;
 	}
@@ -104,18 +103,23 @@ public class TipoAntecedente {
 	}
 
 
-	// ojo con las listas/set con el toString
+	public Set<AntecedenteInternacion> getAntecedenteInternacion() {
+		return antecedenteInternacion;
+	}
+
+
+	public void setAntecedenteInternacion(Set<AntecedenteInternacion> antecedenteInternacion) {
+		this.antecedenteInternacion = antecedenteInternacion;
+	}
+
+
 	@Override
 	public String toString() {
 		return "TipoAntecedente [id_tipo_antecendente=" + id_tipo_antecendente + ", descripcionTipoAntecedente="
-				+ descripcionTipoAntecedente + ", elementoAntecedente=" + elementoAntecedente
-				+ ", categoriaAntecedente=" + categoriaAntecedente + "]";
+				+ descripcionTipoAntecedente + ", categoriaAntecedente=" + categoriaAntecedente + "]";
 	}
 
-	
-
-	
-	
+     
 	
 	
 }

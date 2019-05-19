@@ -41,11 +41,6 @@ public class Internacion {
 	@OneToMany(mappedBy="internacion")
 	private Set<TramiteExamen> tramiteExamen;
 	
-	@OneToMany(mappedBy="internacion")
-	private Set<CategoriaExamen> categoriaExamen;
-	
-	//@OneToMany(mappedBy="internacion")
-	//private Set<CategoriaAntecedente> categoriaAntecedente;
 	
 	@OneToMany(mappedBy="internacion")
 	private Set<AntecedenteInternacion> antecedenteInternacion;
@@ -56,8 +51,7 @@ public class Internacion {
 
 	public Internacion(long id_historiaclinica, int id_internacion, int id_expediente, int id_personal,
 			Date fecha_ingreso, String impresion_diagnostica, String tratamiento, Set<TramiteReceta> tramiteReceta,
-			Set<TramiteExamen> tramiteExamen, Set<CategoriaExamen> categoriaExamen,
-			Set<CategoriaAntecedente> categoriaAntecedente, Set<AntecedenteInternacion> antecedenteInternacion) {
+			Set<TramiteExamen> tramiteExamen, Set<AntecedenteInternacion> antecedenteInternacion) {
 		super();
 		this.id_historiaclinica = id_historiaclinica;
 		this.id_internacion = id_internacion;
@@ -68,15 +62,12 @@ public class Internacion {
 		this.tratamiento = tratamiento;
 		this.tramiteReceta = tramiteReceta;
 		this.tramiteExamen = tramiteExamen;
-		this.categoriaExamen = categoriaExamen;
-		
 		this.antecedenteInternacion = antecedenteInternacion;
 	}
 
 	public Internacion(int id_internacion, int id_expediente, int id_personal, Date fecha_ingreso,
 			String impresion_diagnostica, String tratamiento, Set<TramiteReceta> tramiteReceta,
-			Set<TramiteExamen> tramiteExamen, Set<CategoriaExamen> categoriaExamen,
-			Set<CategoriaAntecedente> categoriaAntecedente, Set<AntecedenteInternacion> antecedenteInternacion) {
+			Set<TramiteExamen> tramiteExamen, Set<AntecedenteInternacion> antecedenteInternacion) {
 		super();
 		this.id_internacion = id_internacion;
 		this.id_expediente = id_expediente;
@@ -86,8 +77,6 @@ public class Internacion {
 		this.tratamiento = tratamiento;
 		this.tramiteReceta = tramiteReceta;
 		this.tramiteExamen = tramiteExamen;
-		this.categoriaExamen = categoriaExamen;
-		
 		this.antecedenteInternacion = antecedenteInternacion;
 	}
 
@@ -163,16 +152,6 @@ public class Internacion {
 		this.tramiteExamen = tramiteExamen;
 	}
 
-	public Set<CategoriaExamen> getCategoriaExamen() {
-		return categoriaExamen;
-	}
-
-	public void setCategoriaExamen(Set<CategoriaExamen> categoriaExamen) {
-		this.categoriaExamen = categoriaExamen;
-	}
-
-
-
 	public Set<AntecedenteInternacion> getAntecedenteInternacion() {
 		return antecedenteInternacion;
 	}
@@ -182,12 +161,6 @@ public class Internacion {
 	}
 
 	
-
 	
-	
-
-	
-	
-	
-	
+	 
 }

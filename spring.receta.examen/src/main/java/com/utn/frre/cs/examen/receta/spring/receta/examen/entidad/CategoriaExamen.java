@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -46,9 +44,6 @@ public class CategoriaExamen {
 	private Set<CategoriaDatosExamen> categoriaDatosExamen;
 
 	
-	@ManyToOne
-	@JoinColumn(name="id_historiaclinica", nullable=false)
-	private Internacion internacion;
 	
 	/**
 	 * Constructor por defecto de CategoriaExamen
@@ -58,64 +53,59 @@ public class CategoriaExamen {
 
 	}
 
-	/**
-	 * Constructor necesario para realizar un insert (id se autogenera)
-	 */
 
-	public CategoriaExamen(String descripcionExamen) {
-		super();
-		this.descripcionExamen = descripcionExamen;
-	}
-
-	/**
-	 * Constructor necesario para realizar un update
-	 */
-
-	public CategoriaExamen(Long cod_examen, String descripcionExamen) {
+	public CategoriaExamen(Long cod_examen, String descripcionExamen, Set<CategoriaDatosExamen> categoriaDatosExamen) {
 		super();
 		this.cod_examen = cod_examen;
 		this.descripcionExamen = descripcionExamen;
+		this.categoriaDatosExamen = categoriaDatosExamen;
 	}
 
-	// Getters/Setters --------------------------------------------------------
 
-	public Set<CategoriaDatosExamen> getCatDatosExamen() {
-		return categoriaDatosExamen;
+	public CategoriaExamen(String descripcionExamen, Set<CategoriaDatosExamen> categoriaDatosExamen) {
+		super();
+		this.descripcionExamen = descripcionExamen;
+		this.categoriaDatosExamen = categoriaDatosExamen;
 	}
 
-	public void setCatDatosExamen(Set<CategoriaDatosExamen> catDatosExamen) {
-		this.categoriaDatosExamen = catDatosExamen;
-	}
 
 	public Long getCod_examen() {
 		return cod_examen;
 	}
 
+
 	public void setCod_examen(Long cod_examen) {
 		this.cod_examen = cod_examen;
 	}
+
 
 	public String getDescripcionExamen() {
 		return descripcionExamen;
 	}
 
+
 	public void setDescripcionExamen(String descripcionExamen) {
 		this.descripcionExamen = descripcionExamen;
 	}
 
-	
-	// metodo ToString para poder ver el resultado en la consola y hacer pruebas
-	@Override
-	public String toString() {
-		return "CategoriaExamen [cod_examen=" + cod_examen + ", descripcionExamen=" + descripcionExamen + "]";
+
+	public Set<CategoriaDatosExamen> getCategoriaDatosExamen() {
+		return categoriaDatosExamen;
 	}
 
-	
-	
+
+	public void setCategoriaDatosExamen(Set<CategoriaDatosExamen> categoriaDatosExamen) {
+		this.categoriaDatosExamen = categoriaDatosExamen;
+	}
 
 
-	
+	@Override
+	public String toString() {
+		return "CategoriaExamen [cod_examen=" + cod_examen + ", descripcionExamen=" + descripcionExamen
+				+ ", categoriaDatosExamen=" + categoriaDatosExamen + "]";
+	}
 
+	 
 	
-
+	
 }
