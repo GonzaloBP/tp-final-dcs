@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Categoria examen: Representa la categoria a la que puede pertenecer un examen
  * 
@@ -39,7 +41,7 @@ public class CategoriaExamen {
 	/**
 	 * Conjunto de estudios que pertenecen a esta categoria de examen
 	 */
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "categoriaExamen")
 	private Set<CategoriaDatosExamen> categoriaDatosExamen;
 
@@ -92,20 +94,13 @@ public class CategoriaExamen {
 	public Set<CategoriaDatosExamen> getCategoriaDatosExamen() {
 		return categoriaDatosExamen;
 	}
-
+	
 
 	public void setCategoriaDatosExamen(Set<CategoriaDatosExamen> categoriaDatosExamen) {
 		this.categoriaDatosExamen = categoriaDatosExamen;
 	}
 
 
-	@Override
-	public String toString() {
-		return "CategoriaExamen [cod_examen=" + cod_examen + ", descripcionExamen=" + descripcionExamen
-				+ ", categoriaDatosExamen=" + categoriaDatosExamen + "]";
-	}
-
 	 
-	
 	
 }

@@ -130,12 +130,7 @@ public class TramiteExamen {
 		this.tramiteExamenDatoLineas = tramiteExamenDatoLineas;
 	}
 
-	@Override
-	public String toString() {
-		return "TramiteExamen [ideSolicitudExamen=" + ideSolicitudExamen + ", categoriaExamen=" 
-				+ ", idePersonalMed=" + idePersonalMed + ", fecExamen=" + fecExamen + ", internacion=" + internacion
-				+ "]";
-	}
+	 
 
 	
 

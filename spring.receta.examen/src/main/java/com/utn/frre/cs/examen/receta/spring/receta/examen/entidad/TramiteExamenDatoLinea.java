@@ -137,13 +137,7 @@ public class TramiteExamenDatoLinea {
 		this.fechaEstudio = fechaEstudio;
 	}
 
-	@Override
-	public String toString() {
-		return "TramiteExamenDatoLinea [ide_TramiteExamenDatoLinea=" + ide_TramiteExamenDatoLinea
-				+ ", categoriaDatoExamen=" + categoriaDatoExamen + ", tramiteExamen=" + tramiteExamen
-				+ ", resultadoExamen=" + resultadoExamen + ", estadoEstudio=" + estadoEstudio + ", fechaEstudio="
-				+ fechaEstudio + "]";
-	}
+ 
 
 	
 	

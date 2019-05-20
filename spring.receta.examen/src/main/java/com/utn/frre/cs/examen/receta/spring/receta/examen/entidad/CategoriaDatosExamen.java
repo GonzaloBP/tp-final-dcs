@@ -118,13 +118,9 @@ public class CategoriaDatosExamen {
 	}
 
 	
-	// metodo ToString para poder ver el resultado en la consola y hacer pruebas
+	 
 	
-	@Override
-	public String toString() {
-		return "CategoriaDatosExamen [cod_dato=" + cod_dato + ", categoriaExamen=" + categoriaExamen
-				+ ", descripcionDato=" + descripcionDato + "]";
-	}
+	 
 
 	
 	
